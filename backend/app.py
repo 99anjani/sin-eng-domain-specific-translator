@@ -89,5 +89,7 @@ def translate():
     pred = tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
     return jsonify({"input": src_text, "translation": pred})
 
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=5000, debug=True)
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
